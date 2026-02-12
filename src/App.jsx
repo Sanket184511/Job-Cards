@@ -1,6 +1,5 @@
 import React from "react";
 import Card from "./components/Card";
-import User from "./components/User";
 const App = () => {
   const jobOpenings = [
     {
@@ -94,6 +93,7 @@ const App = () => {
     {
       brandLogo:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYXxvNxVAhUedFaFCYhUrKZ_zAUq-zd7a8_g&s",
+      companyName: "Oracle",
       datePosted: "6 days ago",
       post: "Java Developer",
       tag1: "Full Time",
@@ -113,22 +113,24 @@ const App = () => {
       location: "Bangalore, India",
     },
   ];
-  console.log(jobOpenings);
+ 
 
   return (
     <div className="parent">
-      {jobOpenings.map(function (elem) {
+      {jobOpenings.map(function (elem, idx) {
         return (
-          <Card
-            company={elem.companyName}
-            post={elem.post}
-            tag1={elem.tag1}
-            tag2={elem.tag2}
-            pay={elem.pay}
-            brandLogo={elem.brandLogo}
-            datePosted={elem.datePosted}
-            location={elem.location}
-          />
+          <div key={idx}>
+            <Card
+              company={elem.companyName}
+              post={elem.post}
+              tag1={elem.tag1}
+              tag2={elem.tag2}
+              pay={elem.pay}
+              brandLogo={elem.brandLogo}
+              datePosted={elem.datePosted}
+              location={elem.location}
+            />
+          </div>
         );
       })}
     </div>
